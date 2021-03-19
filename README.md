@@ -20,30 +20,30 @@ sudo apt install mariadb-client-core-10.3
 sudo systemctl status docker
 ```
 
-### Clone my Github in the Terminal
+### Clone my Github in the Terminal:
 ```
 git clone https://github.com/mhhuynh206/maxscale-docker
 ```
-### Access the Directory
+### Access the Directory:
 ```
 cd maxscale-docker/maxscale/
 ```
-### Bring up the containers in the directory
+### Bring up the containers in the directory:
 ```
 sudo docker-compose up -d
 ```
-### There should be three containers; maxscale_master2_1, maxscale_master_1, and maxscale_maxscale_1(Shown below)
+### There should be three containers; maxscale_master2_1, maxscale_master_1, and maxscale_maxscale_1(Shown below):
 ```
 maxscale_master2_1 is up-to-date
 maxscale_master_1 is up-to-date
 maxscale_maxscale_1 is up-to-date
 
 ```
-### To see that both masters are running, run this command in the terminal
+### To see that both masters are running, run this command in the terminal:
 ```
 docker-compose exec maxscale maxctrl list servers
 ```
-### Your Terminal should look something like this below
+### Your Terminal should look something like this below:
 ```
 ┌────────────────┬─────────┬──────┬─────────────┬─────────────────┬───────────┐
 │ Server         │ Address │ Port │ Connections │ State           │ GTID      │
@@ -53,11 +53,11 @@ docker-compose exec maxscale maxctrl list servers
 │ zip_master_two │ master2 │ 3306 │ 0           │ Running         │ 0-3000-31 │
 └────────────────┴─────────┴──────┴─────────────┴─────────────────┴───────────┘
 ```
-### To connect to Mariadb, enter this command
+### To connect to Mariadb, enter this command:
 ```
 mariadb -umaxuser -pmaxpwd -h 127.0.0.1 -P 4000
 ```
-### It should look similar to this below
+### It should look similar to this below:
 ```
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 8
@@ -69,7 +69,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 MariaDB [(none)]>
 ```
-### Enter this command
+### Enter this command:
 ```
 show databases;
 ```
@@ -85,7 +85,7 @@ show databases;
 +--------------------+
 ```
 
-### This command will show you the last 10 zipcodes in zipcodes_one
+### This command will show you the last 10 zipcodes in zipcodes_one:
 ```
 SELECT * FROM zipcodes_one.zipcodes_one LIMIT 9990,10;
 ```
@@ -106,7 +106,7 @@ SELECT * FROM zipcodes_one.zipcodes_one LIMIT 9990,10;
 +---------+-------------+----------------+-------+--------------+-----------+------------+-------------------------+---------------+-----------------+---------------------+------------+
 ```
 
-## Now to check zipcodes_two, enter the following command
+## Now to check zipcodes_two, enter the following command:
 ```
 SELECT * FROM zipcodes_two.zipcodes_two LIMIT 10;
 ```
@@ -128,7 +128,7 @@ SELECT * FROM zipcodes_two.zipcodes_two LIMIT 10;
 10 rows in set (0.001 sec)
 ```
 
-### Enter the following command to view the largest zipcode in zipcodes_one
+### Enter the following command to view the largest zipcode in zipcodes_one:
 ```
 SELECT Zipcode FROM zipcodes_one.zipcodes_one ORDER BY Zipcode DESC LIMIT 1;
 ```
@@ -140,7 +140,7 @@ SELECT Zipcode FROM zipcodes_one.zipcodes_one ORDER BY Zipcode DESC LIMIT 1;
 +---------+
 ```
 
-### Enter the following command to view the smallest zipcode in zipcodes_two
+### Enter the following command to view the smallest zipcode in zipcodes_two:
 ```
 SELECT Zipcode FROM zipcodes_two.zipcodes_two ORDER BY Zipcode ASC LIMIT 1;
 ```
