@@ -1,11 +1,12 @@
 # Real World Project: Database Shard
+
 ## Prerequisites:
 Have Docker, Docker Compose, Mariadb 10.3 installed
 
 ## To install Docker:
 ```
 sudo apt install docker.io
-
+```
 ## To install Docker Compose:
 ```
 sudo apt install docker-compose
